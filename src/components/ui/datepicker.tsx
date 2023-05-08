@@ -13,7 +13,7 @@ import {
 import { add, format } from "date-fns";
 import { INTERVAL, STORE_CLOSE_TIME, STORE_OPEN_TIME } from "~/constants/config";
 
-export function DatePickerDemo() {
+export function DatePicker() {
   const [date, setDate] = React.useState<Date | undefined>();
 
   const getTimes = (): Date[] | undefined => {

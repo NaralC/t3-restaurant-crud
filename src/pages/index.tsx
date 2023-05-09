@@ -1,10 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
-import { Button } from "~/components/ui/button";
-import { Calendar } from "~/components/ui/calendar";
-import { DatePicker } from "~/components/ui/datepicker";
-
+import { DatePicker } from "~/components/datepicker";
 import { api } from "~/utils/api";
 
 const Home: NextPage = () => {

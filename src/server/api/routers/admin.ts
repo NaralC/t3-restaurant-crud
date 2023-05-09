@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/await-thenable */
-import { createTRPCRouter, publicProcedure } from "../trpc";
+import { adminProcedure, createTRPCRouter, publicProcedure } from "../trpc";
 import { z } from "zod";
 import { SignJWT } from "jose";
 import { nanoid } from "nanoid";
@@ -54,4 +54,8 @@ export const adminRouter = createTRPCRouter({
         message: "Invalid email/password"
       })
     }),
+
+    sensitive: adminProcedure.mutation(() => {
+      return "sensitive";
+    })
 });

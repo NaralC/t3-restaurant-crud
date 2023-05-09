@@ -21,6 +21,9 @@ const Login: NextPage = () => {
     onSuccess: () => {
       // eslint-disable-next-line @typescript-eslint/no-floating-promises
       router.push("/dashboard");
+    },
+    onError: () => {
+      console.log(error);
     }
   });
 

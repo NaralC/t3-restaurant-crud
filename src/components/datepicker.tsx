@@ -12,9 +12,12 @@ import {
 } from "~/components/ui/popover";
 import { add, format } from "date-fns";
 import { INTERVAL, STORE_CLOSE_TIME, STORE_OPEN_TIME } from "~/constants/config";
+import { type Dispatch, type SetStateAction } from "react";
 
-export function DatePicker() {
-  const [date, setDate] = React.useState<Date | undefined>();
+export function DatePicker({ date, setDate }: {
+  date: Date | undefined,
+  setDate: Dispatch<SetStateAction<Date | undefined>>
+}) {
 
   const getTimes = (): Date[] | undefined => {
     if (!date) {
@@ -62,7 +65,7 @@ export function DatePicker() {
             initialFocus
           />
         ) : (
-          <div className="flex-wrap">
+          <div className="flex gap-1">
             {times?.map((time, idx) => {
               return (
                 <div className="border-2 border-black" key={`time-${idx}`}>
@@ -70,6 +73,8 @@ export function DatePicker() {
                     onClick={() => {
                       const newDate = new Date(date);
                       newDate.setHours(time.getHours(), time.getMinutes());
+
+                      console.log(newDate);
                       setDate(newDate);
                     }}
                   >
